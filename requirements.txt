@@ -1,0 +1,2 @@
+matplotlib==3.4.3
+# use esse comando no terminal: pip install -r requirements.txt
