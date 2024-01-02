@@ -30,11 +30,11 @@ Siga estes passos para configurar e executar o script:
 O próximo passo vai ser tornar mais flexível e com uma maior usabilidade o script em python. Para isso melhorias que eu pensei de serem feitas são:
 1. Adição de Outras Métricas Estatísticas
 
-Além de identificar as pessoas que mais conversam, planejamos incluir outras métricas estatísticas para proporcionar uma análise mais abrangente. Estamos explorando a incorporação de dados como a média de mensagens por usuário, a frequência das interações e outras métricas relevantes.
+Além de identificar as pessoas que mais conversam, planejo incluir outras métricas estatísticas para proporcionar uma análise mais abrangente. Como por exemplo, a incorporação de dados como a média de mensagens por usuário, a frequência das interações e outras métricas relevantes.
 
 2. Seleção de Intervalos Temporais Personalizados
 
-Entendemos que diferentes usuários podem ter necessidades específicas ao analisar suas conversas. Por isso, estamos trabalhando na implementação da capacidade de selecionar intervalos temporais personalizados. Você poderá escolher entre períodos como os últimos 1 mês, 6 meses ou 1 ano para analisar dados específicos e obter insights mais detalhados.
+Entendo que diferentes usuários podem ter necessidades específicas ao analisar suas conversas. Por isso, quero implementar a capacidade de selecionar intervalos temporais personalizados. Então, você poderá escolher entre períodos como os últimos 1 mês, 6 meses ou 1 ano para analisar dados específicos e obter insights mais detalhados.
 
 ##
 
