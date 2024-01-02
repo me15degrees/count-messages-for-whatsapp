@@ -6,7 +6,20 @@
   
 </div>
 
-Este script em Python permite gerar um gráfico que mostra as pessoas que mais conversam em um determinado intervalo de tempo com base nos dados de uma conversa exportada de um grupo no WhatsApp. Até a última atualização, a exportação não é feita através do WhatsApp Web. Certifique-se também que o arquivo a ser lido e que deve ser renomeado no script, esteja na mesma pasta que o código `script_zap.py`.
+Este script em Python permite gerar um gráfico que mostra as pessoas que mais conversam (número absoluto) em um determinado intervalo de tempo com base nos dados de uma conversa exportada de um grupo no WhatsApp. Até a última atualização, a exportação não é feita através do WhatsApp Web. Certifique-se também que o arquivo a ser lido e que deve ser renomeado no script, esteja na mesma pasta que o código `script_zap.py`.
+## Como exportar?
+Para usuários de android:
+
+<img src="assets/i572669.webp">
+
+Para usuários de IOS:
+
+<img src="assets/i572659.webp">
+
+## Resultado
+O resultado final deve ficar assim, com pequenas variações de acordo com o que você selecionou para o grupo/chat. Para salvar a imagem é só clicar no ícone superior de 'download' da janela que exibir o gráfico.
+
+<img src="assets/poggers.png">
 
 ## Instalação
 Siga estes passos para configurar e executar o script:
@@ -28,13 +41,17 @@ Siga estes passos para configurar e executar o script:
     ```
 ## Próximas Implementações
 O próximo passo vai ser tornar mais flexível e com uma maior usabilidade o script em python. Para isso melhorias que eu pensei de serem feitas são:
-1. Adição de Outras Métricas Estatísticas
+1. Adição de outras métricas estatísticas
 
 Além de identificar as pessoas que mais conversam, planejo incluir outras métricas estatísticas para proporcionar uma análise mais abrangente. Como por exemplo, a incorporação de dados como a média de mensagens por usuário, a frequência das interações e outras métricas relevantes.
 
-2. Seleção de Intervalos Temporais Personalizados
+2. Seleção de intervalos personalizados
 
 Entendo que diferentes usuários podem ter necessidades específicas ao analisar suas conversas. Por isso, quero implementar a capacidade de selecionar intervalos temporais personalizados. Então, você poderá escolher entre períodos como os últimos 1 mês, 6 meses ou 1 ano para analisar dados específicos e obter insights mais detalhados.
+
+3. Tirar a sobreposição de pessoas com mesmo 1º nome
+   
+Para otimizar o espaço da figura foi colocado no código uma lógica de selecionar apenas o primeiro nome da pessoa. Contudo, pessoas cujo primeiro nome são iguais de um nome composto acabam sendo um problema.
 
 ##
 
