@@ -36,9 +36,8 @@ with open(filename, 'r') as arq:
         except ValueError:
             pass
 
-ini = data[0]
+ini = "01/12/2023"
 fim = data[-1]
-
 contagem_por_chave = contar_valores_por_chave(dicio)
 
 contagem_ordenada = dict(sorted(contagem_por_chave.items(), key=lambda item: item[1], reverse=True))
