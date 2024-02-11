@@ -41,7 +41,7 @@ Siga estes passos para configurar e executar o script:
     ```
 ## Próximas Implementações
 O próximo passo vai ser tornar mais flexível e com uma maior usabilidade o script em python. Para isso melhorias que eu pensei de serem feitas são:
-1. Quantidade do ranking
+[] Quantidade do ranking
 
 Para grupos de muitas pessoas é interessante passar como parâmetro o número máximo do ranking (exemplo: top 3, top 5).
 
