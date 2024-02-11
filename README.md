@@ -45,11 +45,11 @@ O próximo passo vai ser tornar mais flexível e com uma maior usabilidade o scr
 
 Além de identificar as pessoas que mais conversam, planejo incluir outras métricas estatísticas para proporcionar uma análise mais abrangente. Como por exemplo, a incorporação de dados como a média de mensagens por usuário, a frequência das interações e outras métricas relevantes.
 
-2. Seleção de intervalos personalizados
+[x] Seleção de intervalos personalizados
 
 Entendo que diferentes usuários podem ter necessidades específicas ao analisar suas conversas. Por isso, quero implementar a capacidade de selecionar intervalos temporais personalizados. Então, você poderá escolher entre períodos como os últimos 1 mês, 6 meses ou 1 ano para analisar dados específicos e obter insights mais detalhados.
 
-3. Tirar a sobreposição de pessoas com mesmo 1º nome
+[x] Tirar a sobreposição de pessoas com mesmo 1º nome
    
 Para otimizar o espaço da figura foi colocado no código uma lógica de selecionar apenas o primeiro nome da pessoa. Contudo, pessoas cujo primeiro nome são iguais de um nome composto acabam sendo um problema.
 
