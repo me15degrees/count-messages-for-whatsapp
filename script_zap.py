@@ -1,58 +1,66 @@
-import matplotlib. pyplot as plt
+import matplotlib.pyplot as plt
+import datetime
 
-# reescreva usando o nome do arquivo de mensagens
-# ele deve estar no mesmo diretório que o código
+# nome do arquivo de mensagens
+filename = "teste.txt"
 
-filename = "Conversa do WhatsApp com poggers.txt"
+def count_values_by_key(dictionary):
+    count = {}
+    for key, values in dictionary.items():
+        count[key] = len(values)
+    return count
 
-def contar_valores_por_chave(dicionario):
-    contagem = {}
-    for chave, valores in dicionario.items():
-        contagem[chave] = len(valores)
-    return contagem
-
-def dicio_person(person, content, dicio):
+def update_dictionary(person, content, dictionary):
     if person[0] not in "!@#<>$%¨&*)().,\|?/up":
-        if person in dicio:
-            dicio[person].append(content)
+        if person in dictionary:
+            dictionary[person].append(content)
         else:
-            dicio[person] = [content]
-    return dicio
+            dictionary[person] = [content]
+    return dictionary
 
-patriotic_adjective = input("digite o nome da sua tribo: ") # poggerianos
+patriotic_adjective = input("Digite o nome do seu grupo: ")  # poggers
 
-data = []
-dicio = {}
+data = {}
+start = "28/12/2023" # alterar as datas para o intervalo desejado
+end = "01/01/2024"
 
-with open(filename, 'r') as arq:
-    for linha in arq:
+start_date = datetime.datetime.strptime(start, "%d/%m/%Y")
+end_date = datetime.datetime.strptime(end, "%d/%m/%Y")
+
+with open(filename, 'r') as file:
+    for line in file:
         try:
-            l = linha.split()
-            if len(l) > 0 and l[0][0] in "0123456789":
-                data.append(l[0])
-            if len(linha) > 2 and '-' in linha and ':' in linha:
-                person, content = linha.split("-")[1].split(":")
-                dicio_person(person, content, dicio)
+            list_of_words = line.split()
+            if len(list_of_words) > 0 and '-' in line and ':' in line:
+                date_str = list_of_words[0]
+                message_date = datetime.datetime.strptime(date_str, "%d/%m/%Y")
+                if start_date <= message_date <= end_date:
+                    person, content = line.split("-")[1].split(":")
+                    update_dictionary(person, content, data)
         except ValueError:
             pass
 
-ini = "01/12/2023"
-fim = data[-1]
-contagem_por_chave = contar_valores_por_chave(dicio)
+count_by_key = count_values_by_key(data)
 
-contagem_ordenada = dict(sorted(contagem_por_chave.items(), key=lambda item: item[1], reverse=True))
+sorted_count = dict(sorted(count_by_key.items(), key=lambda item: item[1], reverse=True))
 
-chaves_modificadas = [chave.split()[0] for chave in contagem_ordenada.keys()]
+modified_keys = []
+for key in sorted_count.keys():
+    split_key = key.split()
+    if len(split_key) > 1:
+        modified_keys.append(f"{split_key[0]} {split_key[1]}")
+    else:
+        modified_keys.append(split_key[0])
 
 fig, ax = plt.subplots()
 fig.set_size_inches(15, 10)
 
-valores = list(contagem_ordenada.values())
+values = list(sorted_count.values())
 
-bars = ax.bar(chaves_modificadas, valores)
+bars = ax.bar(modified_keys, values)
 
-ax.set_title(f'{patriotic_adjective} mais tagarela de {ini} até {fim}')
-ax.set_xticklabels(chaves_modificadas, rotation=45, ha='right')
+ax.set_title(f'{patriotic_adjective} mais tagarela de {start_date.strftime("%d/%m/%Y")} até {end_date.strftime("%d/%m/%Y")}')
+ax.set_xticklabels(modified_keys, rotation=45, ha='right')
 
 for bar in bars:
     yval = bar.get_height()
