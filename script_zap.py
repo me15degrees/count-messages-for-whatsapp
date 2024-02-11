@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import datetime
+import os
 
 # nome do arquivo de mensagens
-filename = "teste.txt"
+filename = "poggers.txt"
 
 def count_values_by_key(dictionary):
     count = {}
@@ -18,11 +19,11 @@ def update_dictionary(person, content, dictionary):
             dictionary[person] = [content]
     return dictionary
 
-patriotic_adjective = input("Digite o nome do seu grupo: ")  # poggers
+group_name = input("Digite o nome do seu grupo: ")  # poggers
 
 data = {}
-start = "28/12/2023" # alterar as datas para o intervalo desejado
-end = "01/01/2024"
+start = "26/10/2023" # alterar as datas para o intervalo desejado
+end = "10/11/2023"
 
 start_date = datetime.datetime.strptime(start, "%d/%m/%Y")
 end_date = datetime.datetime.strptime(end, "%d/%m/%Y")
@@ -59,11 +60,15 @@ values = list(sorted_count.values())
 
 bars = ax.bar(modified_keys, values)
 
-ax.set_title(f'{patriotic_adjective} mais tagarela de {start_date.strftime("%d/%m/%Y")} até {end_date.strftime("%d/%m/%Y")}')
+ax.set_title(f'Os usuários mais tagarelas de {start_date.strftime("%d/%m/%Y")} até {end_date.strftime("%d/%m/%Y")}')
 ax.set_xticklabels(modified_keys, rotation=45, ha='right')
 
 for bar in bars:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval + 0.1, round(yval, 1), ha='center', va='bottom')
+
+output_filename = f"{group_name}_{start.replace('/', '')}_{end.replace('/', '')}.png"
+output_path = os.path.join(os.path.expanduser('~'), 'Downloads', output_filename)
+plt.savefig(output_path)
 
 plt.show()
