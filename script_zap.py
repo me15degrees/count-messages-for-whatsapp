@@ -1,33 +1,22 @@
 import matplotlib.pyplot as plt
 import datetime
 import os
+import re
+from collections import defaultdict
 
 # nome do arquivo de mensagens
 filename = "poggers.txt"
 
-def count_values_by_key(dictionary):
-    count = {}
-    for key, values in dictionary.items():
-        count[key] = len(values)
-    return count
-
-def update_dictionary(person, content, dictionary):
-    if person[0] not in "!@#<>$%¨&*)().,\|?/up":
-        if person in dictionary:
-            dictionary[person].append(content)
-        else:
-            dictionary[person] = [content]
-    return dictionary
-
 group_name = input("Digite o nome do seu grupo: ")  # poggers
 
 data = {}
-start = "26/10/2023" # alterar as datas para o intervalo desejado
-end = "10/11/2023"
+start = "11/01/2024" # alterar as datas para o intervalo desejado
+end = "12/02/2024"
 
 start_date = datetime.datetime.strptime(start, "%d/%m/%Y")
 end_date = datetime.datetime.strptime(end, "%d/%m/%Y")
 
+counter = defaultdict(int)
 with open(filename, 'r') as file:
     for line in file:
         try:
@@ -36,32 +25,21 @@ with open(filename, 'r') as file:
                 date_str = list_of_words[0]
                 message_date = datetime.datetime.strptime(date_str, "%d/%m/%Y")
                 if start_date <= message_date <= end_date:
-                    person, content = line.split("-")[1].split(":")
-                    update_dictionary(person, content, data)
+                    person, *_ = re.findall(r"- (.+?):", line)
+                    counter[person] += 1
         except ValueError:
-            pass
-
-count_by_key = count_values_by_key(data)
-
-sorted_count = dict(sorted(count_by_key.items(), key=lambda item: item[1], reverse=True))
-
-modified_keys = []
-for key in sorted_count.keys():
-    split_key = key.split()
-    if len(split_key) > 1:
-        modified_keys.append(f"{split_key[0]} {split_key[1]}")
-    else:
-        modified_keys.append(split_key[0])
+            print("ERROR:", line)
 
 fig, ax = plt.subplots()
 fig.set_size_inches(15, 10)
 
-values = list(sorted_count.values())
+# ordenando de forma decrescente por número de mensagens
+names, values = zip(*sorted(counter.items(), key=lambda x: x[1], reverse=True))
 
-bars = ax.bar(modified_keys, values)
+bars = ax.bar(names, values)
 
 ax.set_title(f'Os usuários mais tagarelas de {start_date.strftime("%d/%m/%Y")} até {end_date.strftime("%d/%m/%Y")}')
-ax.set_xticklabels(modified_keys, rotation=45, ha='right')
+ax.set_xticklabels(names, rotation=45, ha='right')
 
 for bar in bars:
     yval = bar.get_height()
