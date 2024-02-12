@@ -8,16 +8,16 @@
 
 Este script em Python permite gerar um gráfico que mostra as pessoas que mais conversam (número absoluto) em um determinado intervalo de tempo com base nos dados de uma conversa exportada de um grupo no WhatsApp. Até a última atualização, a exportação não é feita através do WhatsApp Web. Certifique-se também que o arquivo a ser lido e que deve ser renomeado no script, esteja na mesma pasta que o código `script_zap.py`.
 ## Como exportar?
-Para usuários de android:
+Para usuários de android (Canaltech):
 
 <img src="assets/i572669.webp">
 
-Para usuários de IOS:
+Para usuários de IOS (Canaltech):
 
 <img src="assets/i572659.webp">
 
 ## Resultado
-O resultado final deve ficar assim, com pequenas variações de acordo com o que você selecionou para o grupo/chat. Para salvar a imagem é só clicar no ícone superior de 'download' da janela que exibir o gráfico.
+O resultado final deve ficar assim, com pequenas variações de acordo com o que você selecionou para o grupo/chat. A imagem já é salva automaticamente na pasta Downloads, mas você pode alterar o caminho de salvamento ou desabilitar o salvamento automático.
 
 <img src="assets/poggers.png">
 
@@ -40,7 +40,7 @@ Siga estes passos para configurar e executar o script:
    python script_zap.py
     ```
 ## Próximas Implementações
-O próximo passo vai ser tornar mais flexível e com uma maior usabilidade o script em python. Para isso melhorias que eu pensei de serem feitas são:
+O próximo passo vai ser tornar o script em python mais flexível e com uma maior usabilidade. Para isso melhorias que eu pensei de serem feitas são:
 
 [ ] Quantidade do ranking
 
@@ -51,8 +51,8 @@ Para grupos de muitas pessoas é interessante passar como parâmetro o número m
 Entendo que diferentes usuários podem ter necessidades específicas ao analisar suas conversas. Por isso, quero implementar a capacidade de selecionar intervalos temporais no código no formato `dia/mês/ano`.
 
 [x] Tirar a sobreposição de pessoas com mesmo 1º nome
-   
-Para otimizar o espaço da figura foi colocado no código uma lógica de selecionar apenas o primeiro nome da pessoa. Contudo, pessoas cujo primeiro nome são iguais de um nome composto acabam sendo um problema.
+
+Para isso é necessário printar o primeiro e segundo nome.
 
 ##
 
