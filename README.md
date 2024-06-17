@@ -34,7 +34,7 @@ Siga estes passos para configurar e executar o script:
    ```bash
    pip install -r requirements.txt
     ```
-3. Exporte a conversa de um grupo do WhatsApp como um arquivo de texto:<br></br>Você pode fazer isso indo para o grupo no WhatsApp, clicando nos três pontos no canto superior direito, selecionando "Mais" e escolhendo "Exportar chat". Guarde o arquivo exportado no diretório do projeto com o nome, por exemplo: whatsapp_chat.txt.
+3. Exporte a conversa de um grupo do WhatsApp como um arquivo de texto:<br></br>Você pode fazer isso indo para o grupo no WhatsApp, clicando nos três pontos no canto superior direito, selecionando "Mais" e escolhendo "Exportar chat". Guarde o arquivo exportado no diretório do projeto com o nome, por exemplo: poggers.txt.
 4. Execute o comando:
    ```bash
    python script_zap.py
@@ -52,7 +52,9 @@ Entendo que diferentes usuários podem ter necessidades específicas ao analisar
 
 [x] Tirar a sobreposição de pessoas com mesmo 1º nome
 
-Para isso é necessário printar o primeiro e segundo nome.
+Para isso é necessário printar o primeiro e segundo nome, mas com uma inclinação de 45º.
+
+Outro detalhe é que a imagem já é salva em uma pasta que pode ser alterada no código.
 
 ##
 
